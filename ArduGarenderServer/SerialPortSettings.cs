@@ -41,7 +41,6 @@ namespace ArduGarenderServer
             bool.TryParse(AutoConnect, out this.AutoConnect);
 
             SaveAllSettings();
-           
         }
 
         public void LoadSavedSettings()
@@ -56,7 +55,7 @@ namespace ArduGarenderServer
             AddUpdateAppSettings("StopBits", StopBits.ToString());
             AddUpdateAppSettings("DataBits", DataBits.ToString());
             AddUpdateAppSettings("PortName", PortName);
-            AddUpdateAppSettings("AutoConnect", AutoConnect.ToString());           
+            AddUpdateAppSettings("AutoConnect", AutoConnect.ToString());
         }
         
         public ArrayList AvailableParity()
@@ -129,7 +128,7 @@ namespace ArduGarenderServer
             }
             catch (ConfigurationErrorsException)
             {
-                Console.WriteLine("Error writing app settings");
+                throw new Exception("Error writing app settings");
             }
         }
 
